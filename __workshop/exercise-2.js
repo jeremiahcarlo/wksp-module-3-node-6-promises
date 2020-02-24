@@ -14,23 +14,23 @@ const opencage = require('opencage-api-client');
 
 function getAddressPosition(address) {
     const requestObj = {
-        key: '1315122032774d06b34c570f3bd70f7b',
+        key: '5a13cc8ce8694fcc83df7780e1c46085',
         q: address
     };
 
     return opencage.geocode(requestObj)
         .then(data => {
-            // if (data.status.code == 200) {
-                // if (data.results.length > 0) {
+            if (data.status.code == 200) {
+                if (data.results.length > 0) {
                     const place = data.results[0];
-                    // console.log(place.geometry);
+                    console.log(place.geometry);
                     return place;
-                // }
-            // } else {
+                }
+            } else {
             //     // other possible response codes:
             //     // https://opencagedata.com/api#codes
-            //     console.log('error', data.status.message);
-            // }
+            console.log('error', data.status.message);
+            }
         })
         .catch(error => console.log('error', error.message));
 }

@@ -9,5 +9,5 @@
 
 // Given a position (latitude and longitude), returns the position
 function getCurrentTemperatureAtPosition(position) {
-
+    return request('')
 }
